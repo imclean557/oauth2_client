@@ -62,7 +62,7 @@ namespace Drupal\oauth2_client\Plugin\Oauth2Client;
  *   authorization_uri = "https://api.instagram.com/oauth/authorize",
  *   token_uri = "https://api.instagram.com/oauth/access_token",
  *   resource_owner_uri = "",
- *   scopes = ["basic", "firebase", "openid"],
+ *   scopes = {"basic", "firebase", "openid"},
  *   scope_separator = ",",
  *   collaborators = {
  *    "optionProvider" = "\League\OAuth2\Client\OptionProvider\HttpBasicAuthOptionProvider",
