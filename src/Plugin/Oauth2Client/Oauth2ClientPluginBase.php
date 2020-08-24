@@ -176,6 +176,17 @@ abstract class Oauth2ClientPluginBase extends PluginBase implements Oauth2Client
   }
 
   /**
+   * {@inheritdoc}
+   */
+  public function getCollaborators() {
+    if (!isset($this->pluginDefinition['collaborators'])) {
+      return [];
+    }
+
+    return $this->pluginDefinition['collaborators'];
+  }
+
+  /**
    * Check that a key is defined when requested. Throw an exception if not.
    *
    * @param string $key

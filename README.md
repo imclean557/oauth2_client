@@ -64,6 +64,9 @@ namespace Drupal\oauth2_client\Plugin\Oauth2Client;
  *   resource_owner_uri = "",
  *   scopes = ["basic", "firebase", "openid"],
  *   scope_separator = ",",
+ *   collaborators = {
+ *    "optionProvider" = "\League\OAuth2\Client\OptionProvider\HttpBasicAuthOptionProvider",
+ *   },
  * )
  */
 class Instagram extends Oauth2ClientPluginBase {}

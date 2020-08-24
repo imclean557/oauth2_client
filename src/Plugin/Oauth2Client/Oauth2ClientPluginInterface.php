@@ -118,4 +118,12 @@ interface Oauth2ClientPluginInterface extends PluginInspectionInterface, Contain
    */
   public function getPassword();
 
+  /**
+   * Retrieves the collaborators to override the provider's defaults.
+   *
+   * @return array
+   *   The list of collaborators for the provider to use.
+   */
+  public function getCollaborators();
+
 }

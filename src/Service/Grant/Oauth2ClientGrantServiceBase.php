@@ -92,6 +92,13 @@ abstract class Oauth2ClientGrantServiceBase extends Oauth2ClientServiceBase impl
       $provider = $this->clientProviderCache[$clientId];
     } else {
       $client = $this->getClient($clientId);
+      $collaborators = $client->getCollaborators();
+      $collaboratorClasses = [];
+      if ($collaborators) {
+        foreach ($collaborators as $type => $collaborator) {
+          $collaboratorClasses[$type] = new $collaborator();
+        }
+      }
 
       $provider = new GenericProvider([
         'clientId' => $client->getClientId(),
@@ -102,7 +109,8 @@ abstract class Oauth2ClientGrantServiceBase extends Oauth2ClientServiceBase impl
         'urlResourceOwnerDetails' => $client->getResourceUri(),
         'scopes' => $client->getScopes(),
         'scopeSeparator' => $client->getScopeSeparator(),
-      ]);
+      ], $collaboratorClasses);
+
       $this->clientProviderCache[$clientId] = $provider;
     }
     return $provider;
